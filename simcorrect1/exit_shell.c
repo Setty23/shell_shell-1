@@ -72,3 +72,23 @@ char *_strchr(char *str, char d)
 
 	return (NULL);
 }
+
+char *my_strncpy(char *dest, const char *src, size_t n)
+{
+	char *d = dest;
+
+    /* Copy at most n characters from src to dest */
+	while (*src && n > 0)
+	{
+		*d++ = *src++;
+		n--;
+	}
+
+    /* Fill remaining space in dest with null characters if needed */
+	while (n > 0)
+	{
+		*d++ = '\0';
+		n--;
+	}
+	return (dest);
+}
