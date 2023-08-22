@@ -26,9 +26,9 @@ void _eputs(char *string)
  * Return: On success 1.
  * On error, -1 is returned, and errno is printed.
  */
-void write_stderr(char *d)
+void write_stderr(char *c)
 {
-	write(STDERR_FILENO, d, _strlen(d));
+	write(STDERR_FILENO, c, _strlen(c));
 }
 
 /**
