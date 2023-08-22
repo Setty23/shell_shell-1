@@ -177,14 +177,17 @@ void remove_comments(char *);
 int my_exit(info_t *);
 int _mycd(info_t *);
 int _myhelp(info_t *);
+int _myhistory(info_t *);
 
 /* _builtin2.c */
-int _myhistory(info_t *);
+int unset_alias(info_t *, char *)
+int set_alias(info_t *, char *)
 int _myalias(info_t *);
 
 /*_getline.c */
 ssize_t get_input(info_t *);
 int _getline(info_t *, char **, size_t *);
+int print_alias(list_t *node1);
 void sigintHandler(int);
 
 /* _getinfo.c */
