@@ -2,7 +2,7 @@
 
 /**
  * is_delimeter - checks if character is a delimeter
- * @d: character to checked
+ * @c: character to checked
  * @delim: delimeter string
  * Return: 1 if true, 0 if not
  */
@@ -20,7 +20,7 @@ int is_delimeter(char c, char *delim)
 }
 
 /**
- *_isalpha - looks for alphabetic character
+ * my_isalpha - looks for alphabetic character
  * @c: The character to be checked.
  *Return: 1 if d is alphabetic, 0 if not
  */

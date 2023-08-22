@@ -51,7 +51,7 @@ char *_strchr(char *str, char d)
  *
  * Return: Pointer to the destination buffer (dest)
  */
- 
+
 char *my_strncpy(char *dest, const char *src, size_t n)
 {
 	char *d = dest;

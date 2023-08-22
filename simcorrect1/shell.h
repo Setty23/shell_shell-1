@@ -163,7 +163,7 @@ int bfree(void **);
 /* atoi.c */
 int interactive(info_t *);
 int is_delimeter(char, char *);
-int _isalpha(char);
+int my_isalpha(char);
 int my_atoi(char *);
 
 /* _errors1.c */
