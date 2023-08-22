@@ -1,32 +1,5 @@
 #include "shell.h"
 
-/**
- * _erratoi - function tht converts  string to  integer
- * @str:  string to be converted
- * Return: 0 if no no in string, converted number if worked
- *       -1 on error
- */
-int _erratoi(char *str)
-{
-	int j = 0;
-	unsigned long int result = 0;
-
-	if (*str == '+')
-		str++;  /*   does this make main print 255? */
-	for (j = 0;  str[j] != '\0'; j++)
-	{
-		if (str[j] >= '0' && str[j] <= '9')
-		{
-			result *= 10;
-			result += (str[j] - '0');
-			if (result > INT_MAX)
-				return (-1);
-		}
-		else
-			return (-1);
-	}
-	return (result);
-}
 
 /**
  * print_error - function that prints an error message
