@@ -1,36 +1,6 @@
 #include "shell.h"
 
 /**
- **_strncpy - functions that copies a string
- *@desti:  destination string
- *@srce: source string
- *@m:  no  of characters to be copied
- *Return:  concat string
- */
-char *_strncpy(char *desti, char *srce, int m)
-{
-	int l, k;
-	char *s = desti;
-
-	l = 0;
-	while (srce[l] != '\0' && l < m - 1)
-	{
-		desti[l] = srce[l];
-		l++;
-	}
-	if (l < m)
-	{
-		k = l;
-		while (k < m)
-		{
-			desti[k] = '\0';
-			k++;
-		}
-	}
-	return (s);
-}
-
-/**
  **_strncat - function that concatenates two strings
  *@dest: first string
  *@src: second string
@@ -73,6 +43,15 @@ char *_strchr(char *str, char d)
 	return (NULL);
 }
 
+/**
+ * my_strncpy - Custom implementation of strncpy function
+ * @dest: Pointer to the destination buffer
+ * @src: Pointer to the source string
+ * @n: Maximum number of characters to copy
+ *
+ * Return: Pointer to the destination buffer (dest)
+ */
+ 
 char *my_strncpy(char *dest, const char *src, size_t n)
 {
 	char *d = dest;
