@@ -177,7 +177,7 @@ void remove_comments(char *);
 int my_exit(info_t *);
 int _mycd(info_t *);
 int _myhelp(info_t *);
-int _myhistory(info_t *);
+int my_history(info_t *);
 
 /* _builtin2.c */
 int unset_alias(info_t *, char *);
