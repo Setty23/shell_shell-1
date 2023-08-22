@@ -37,7 +37,7 @@ int my_isalpha(char c)
  * my_atoi - converts string to an integer.
  * @str: The input string to be converted.
  *
- * Return: 0 if no is still string, converted number otherwise
+ * Return: 0 if it is still string, if converted number
  */
 
 int my_atoi(char *str)
