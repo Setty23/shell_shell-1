@@ -1,18 +1,6 @@
 #include "shell.h"
 
 /**
- * _myhistory - functions displays history list, .
- * @inf: Structure containing potential arguments. maintains
- *        constant function prototype.
- *  Return: Always 0
- */
-int _myhistory(info_t *inf)
-{
-	print_list(inf->history);
-	return (0);
-}
-
-/**
  * unset_alias - function tht sets alias to string
  * @info: it is a parameter struct
  * @str: is the string alias
