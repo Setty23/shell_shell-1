@@ -60,7 +60,7 @@ int find_builtin(info_t *info)
 		{"exit", my_exit},
 		{"env", _myenv},
 		{"help", _myhelp},
-		{"history", _myhistory},
+		{"history", my_history},
 		{"setenv", _mysetenv},
 		{"unsetenv", _myunsetenv},
 		{"cd", _mycd},
