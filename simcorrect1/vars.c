@@ -120,17 +120,17 @@ int replace_vars(info_t *info)
 				my_strdup(convert_number(info->status, 10, 0)));
 			continue;
 		}
-		if (!_strcmp(info->argv[t], "$$"))
+		if (!my_strcmp(info->argv[t], "$$"))
 		{
 			replace_string(&(info->argv[t]),
-				_strdup(convert_number(getpid(), 10, 0)));
+				my_strdup(convert_number(getpid(), 10, 0)));
 			continue;
 		}
 		node = node_starts_with(info->env, &info->argv[t][1], '=');
 		if (node)
 		{
 			replace_string(&(info->argv[t]),
-				_strdup(_strchr(node->str, '=') + 1));
+				my_strdup(my_strchr(node->str, '=') + 1));
 			continue;
 		}
 		replace_string(&info->argv[t], _strdup(""));
