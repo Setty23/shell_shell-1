@@ -15,7 +15,7 @@ int hsh(info_t *info, char **av)
 
 	while (r != -1 && builtin_ret != -2)
 	{
-		clear_info(info);
+		init_info(info);
 		if (interactive(info))
 			_puts("$ ");
 		_errputchar(BUF_FLUSH);
