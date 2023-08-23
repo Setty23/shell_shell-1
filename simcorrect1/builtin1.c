@@ -74,11 +74,6 @@ int my_cd(info_t *info)
 		print_error(info, "can't cd to ");
 		_errputs(info->argv[1]), _errputchar('\n');
 	}
-	else
-	{
-		_setenv(info, "OLDPWD", get_env(info, "PWD="));
-		_setenv(info, "PWD", getcwd(buffer, 1024));
-	}
 	return (0);
 }
 
