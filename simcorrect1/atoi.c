@@ -9,7 +9,7 @@
 int is_delimeter(char c, char *delim)
 {
 	size_t i;
-	size_t delim_len = _strlen(delim);
+	size_t delim_len = my_strlen(delim);
 
 	for (i = 0; i < delim_len; i++)
 	{
