@@ -99,7 +99,7 @@ int replace_alias(info_t *info)
 }
 
 /**
- * replace_vars - function that replaces vars the tokenized strings
+ * replace_vars - function that replaces environment vars the tokenized strings
  * @info: the parameter struct that contains arguments
  *
  * Return: 1 if replaced, 0 otherwise
