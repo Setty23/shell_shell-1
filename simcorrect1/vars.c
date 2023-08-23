@@ -133,7 +133,7 @@ int replace_vars(info_t *info)
 				my_strdup(my_strchr(node->str, '=') + 1));
 			continue;
 		}
-		replace_string(&info->argv[t], _strdup(""));
+		replace_string(&info->argv[t], my_strdup(""));
 
 	}
 	return (0);
