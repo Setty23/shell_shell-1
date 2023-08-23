@@ -20,7 +20,8 @@ char **strtow(char *str, char *delim)
 	if (delim == NULL)
 		delim = " ";
 	for (i = 0; str[i] != '\0'; i++)
-		if (!is_delimeter(str[i], delim) && (is_delimeter(str[i + 1], delim) || !str[i + 1]))
+		if (!is_delimeter(str[i], delim) && (is_delimeter(str[i + 1],
+						delim) || !str[i + 1]))
 		{
 			numwords++;
 		}

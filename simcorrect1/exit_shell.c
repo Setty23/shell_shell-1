@@ -32,16 +32,16 @@ char *my_strncat(char *dest, char *src, int b)
  * @c: character to be located.
  *Return: (str)  ptr to  memory area
  */
-char *my_strchr(char *str, char d)
+char *my_strchr(char *str, char c)
 {
 	while (*str != '\0')
 	{
-		if (*str == d)
+		if (*str == c)
 		{
 			return (str);
 		}
 		str++;
-		} 
+	}
 	return (NULL);
 }
 
@@ -72,4 +72,4 @@ char *my_strncpy(char *dest, const char *src, size_t n)
 		n--;
 	}
 	return (dest);
-}
+

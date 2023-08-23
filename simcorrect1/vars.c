@@ -13,8 +13,8 @@ int is_chain(info_t *info, char *buf, int *p)
 	char *chain_delims = ";&|";
 	char c = buf[*p];
 
-	 if (c == '\0')
-		 return (0);
+	if (c == '\0')
+		return (0);
 	if (my_strchr(chain_delims, c) != NULL)
 	{
 		if (c == '|' && buf[*p + 1] == '|')

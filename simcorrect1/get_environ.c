@@ -2,7 +2,7 @@
 
 /**
  * get_environ - a function that returns the string copy of the environ.
- * @info: Structure tht has potential arguments. 
+ * @info: Structure tht has potential arguments.
  * Return: Always 0
  */
 char **get_environ(info_t *info)
