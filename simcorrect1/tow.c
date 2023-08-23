@@ -23,7 +23,7 @@ char **strtow(char *str, char *delim)
 		if (!is_delimeter(str[i], delim) && (is_delimeter(str[i + 1],
 						delim) || !str[i + 1]))
 		{
-			numwords++;
+			num_words++;
 		}
 	if (numw_ords == 0)
 		return (NULL);
@@ -68,7 +68,7 @@ char **strtow2(char *str, char d)
 
 	if (str == NULL || str[0] == 0)
 		return (NULL);
-	for (x = 0; str[i] != '\0'; i++)
+	for (i = 0; str[i] != '\0'; i++)
 		if ((str[i] != d && str[i + 1] == d) ||
 		    (str[i] != d && !str[i + 1]) || str[i + 1] == d)
 			numwords++;
