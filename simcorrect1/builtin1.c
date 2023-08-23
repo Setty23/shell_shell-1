@@ -10,7 +10,6 @@
 int my_exit(info_t *info)
 {
 	int check;
-	int status = 0;
 
 	if (info->argv[1])  /* If  an exit arguement exists*/
 	{
