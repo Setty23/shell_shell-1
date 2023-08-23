@@ -11,13 +11,13 @@
  */
 void print_error(info_t *info, char *est)
 {
-	_eputs(info->fname);
-	_eputs(": ");
+	_errputs(info->fname);
+	_errputs(": ");
 	print_d(info->line_count, STDERR_FILENO);
-	_eputs(": ");
-	_eputs(info->argv[0]);
-	_eputs(": ");
-	_eputs(est);
+	_errputs(": ");
+	_errputs(info->argv[0]);
+	_errputs(": ");
+	_errputs(est);
 }
 
 /**
@@ -34,8 +34,8 @@ int print_d(int input, int fd)
 	unsigned int _abs_, current;
 
 	if (fd == STDERR_FILENO)
-		__putchar = _eputchar;
-	if (inp < 0)
+		__putchar = _errputchar;
+	if (input < 0)
 	{
 		_abs_ = -input;
 		__putchar('-');
