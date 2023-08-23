@@ -182,7 +182,7 @@ int my_history(info_t *);
 /* _builtin2.c */
 int unset_alias(info_t *, char *);
 int set_alias(info_t *, char *);
-int _myalias(info_t *);
+int my_alias(info_t *);
 
 /*_getline.c */
 ssize_t get_input(info_t *);
