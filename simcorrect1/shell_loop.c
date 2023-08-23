@@ -18,7 +18,7 @@ int hsh(info_t *info, char **av)
 		clear_info(info);
 		if (interactive(info))
 			_puts("$ ");
-		_eputchar(BUF_FLUSH);
+		_errputchar(BUF_FLUSH);
 		r = get_input(info);
 		if (r != -1)
 		{
@@ -109,7 +109,7 @@ void find_cmd(info_t *info)
 	{
 		if ((interactive(info) || _getenv(info, "PATH=")
 			|| info->argv[0][0] == '/') && is_cmd(info, info->argv[0]))
-			fork_cmd(info);
+			exec_cmd(info);
 		else if (*(info->arg) != '\n')
 		{
 			info->status = 127;
