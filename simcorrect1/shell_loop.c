@@ -99,7 +99,7 @@ void find_cmd(info_t *info)
 	if (!y)
 		return;
 
-	path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
+	path = find_path(info, get_env(info, "PATH="), info->argv[0]);
 	if (path)
 	{
 		info->path = path;
