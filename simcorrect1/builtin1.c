@@ -65,7 +65,7 @@ int my_cd(info_t *info)
 		}
 		_puts(_getenv(info, "OLDPWD=")), _putchar('\n');
 		chdir_ret = /* TODO: what should it be? */
-			chdir((dr = _getenv(info, "OLDPWD=")) ? dir : "/");
+			chdir((dir = _getenv(info, "OLDPWD=")) ? dir : "/");
 	}
 	else
 		chdir_ret = chdir(info->argv[1]);
