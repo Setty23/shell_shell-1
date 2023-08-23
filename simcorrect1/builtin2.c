@@ -16,7 +16,7 @@ int unset_alias(info_t *info, char *str)
 	if (!x)
 		return (1);
 	c = *x;
-	*c = 0;
+	*x = 0;
 	re = delete_node_at_index(&(info->alias),
 		get_node_index(info->alias, node_starts_with(info->alias, str, -1)));
 	*x = c;
@@ -34,7 +34,7 @@ int set_alias(info_t *info, char *str1)
 {
 	char *x;
 
-	x = _strchr(str1, '=');
+	x = my_strchr(str1, '=');
 	if (!x)
 		return (1);
 	if (!*++x)
@@ -92,9 +92,9 @@ int my_alias(info_t *info)
 	{
 		x = _strchr(info->argv[i], '=');
 		if (x)
-			set_alias(info, info->argv[j]);
+			set_alias(info, info->argv[i]);
 		else
-			print_alias(node_starts_with(info->alias, info->argv[j], '='));
+			print_alias(node_starts_with(info->alias, info->argv[i], '='));
 	}
 
 	return (0);
