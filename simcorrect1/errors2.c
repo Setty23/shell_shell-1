@@ -2,9 +2,10 @@
 
 
 /**
- * print_error - function that prints an error message
+ * print_error - custom function that prints an error message
  * @info:  parameter info struct
  * @est: string containing  error
+ *
  * Return: 0 if no numbers in string, converted number if worked
  *        -1 on error
  */
@@ -20,13 +21,13 @@ void print_error(info_t *info, char *est)
 }
 
 /**
- * print_d - function tht  prints  decimal number (base 10)
- * @inp: input value
+ * print_d - function tht  prints base 10.
+ * @input: input value
  * @fd: filedescriptor to write or modify
  *
  * Return: no of char printed
  */
-int print_d(int inp, int fd)
+int print_d(int input, int fd)
 {
 	int (*__putchar)(char) = _putchar;
 	int i, count = 0;
@@ -36,12 +37,12 @@ int print_d(int inp, int fd)
 		__putchar = _eputchar;
 	if (inp < 0)
 	{
-		_abs_ = -inp;
+		_abs_ = -input;
 		__putchar('-');
 		count++;
 	}
 	else
-		_abs_ = inp;
+		_abs_ = input;
 	current = _abs_;
 	for (i = 1000000000; i > 1; i /= 10)
 	{
@@ -59,24 +60,24 @@ int print_d(int inp, int fd)
 }
 
 /**
- * convert_number - function that converts  a no
- * @nm: the number
+ * convert_number - a function that converts number.
+ * @num: the number
  * @base:  the base
  * @flag: the argument flags
  *
  * Return: the string
  */
-char *convert_number(long int nm, int base, int flag)
+char *convert_number(long int num, int base, int flag)
 {
 	static char *arr;
 	static char buffer[50];
 	char sign = 0;
 	char *pt;
-	unsigned long m  = nm;
+	unsigned long m  = num;
 
-	if (!(flag & CONVERT_UNSIGNED) && nm < 0)
+	if (!(flag & CONVERT_UNSIGNED) && num < 0)
 	{
-		m = -nm;
+		m = -num;
 		sign = '-';
 
 	}
