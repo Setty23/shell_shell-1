@@ -1,45 +1,47 @@
 #include "shell.h"
 
 /**
- **_strncat - function that concatenates two strings
- *@dest: first string
- *@src: second string
- *@m: the no of bytes to be used
+ ** my_strncat - function that concatenates two strings
+ * @dest: first string
+ * @src: second string
+ * @b: the no of bytes to be used
  *Return: concatenated string
  */
-char *_strncat(char *dest, char *src, int m)
+char *my_strncat(char *dest, char *src, int m)
 {
-	int l, k;
-	char *s = dest;
+	int i = 0:
+	int j = 0;
+	char *d = dest;
 
-	l = 0;
-	k = 0;
-	while (dest[l] != '\0')
+	while (dest[i] != '\0')
 		l++;
-	while (src[k] != '\0' && k < m)
+	while (src[j] != '\0' && j < b)
 	{
-		dest[l] = src[k];
-		l++;
-		k++;
+		dest[i] = src[j];
+		i++;
+		j++;
 	}
-	if (k < m)
-		dest[l] = '\0';
-	return (s);
+	if (j < m)
+		dest[i] = '\0';
+	return (d);
 }
 
 /**
- **_strchr - function that locates a character in a string
- *@str: the string  parsed
- *@d: character
+ ** my_strchr - function tat Locate the first occurrence of a char in a str.
+ * @str: the string to search.
+ * @c: character to be located.
  *Return: (str)  ptr to  memory area
  */
-char *_strchr(char *str, char d)
+char *my_strchr(char *str, char d)
 {
-	do {
+	while (*str != '\0')
+	{
 		if (*str == d)
+		{
 			return (str);
-	} while (*str++ != '\0');
-
+		}
+		str++
+		} 
 	return (NULL);
 }
 
