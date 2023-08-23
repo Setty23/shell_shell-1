@@ -58,13 +58,11 @@ int find_builtin(info_t *info)
 	int x, built_in_ret = -1;
 	builtin_table builtintbl[] = {
 		{"exit", my_exit},
-		{"env", _myenv},
-		{"help", _myhelp},
+		{"env", my_env},
+		{"help", my_help},
 		{"history", my_history},
-		{"setenv", _mysetenv},
-		{"unsetenv", _myunsetenv},
-		{"cd", _mycd},
-		{"alias", _myalias},
+		{"cd", my_cd},
+		{"alias", my_alias},
 		{NULL, NULL}
 	};
 
@@ -121,19 +119,18 @@ void find_cmd(info_t *info)
 }
 
 /**
- * fork_cmd - function that forks a an exec cmd
+ * exec_cmd - function that forks a an exec cmd
  * @info: the parameter & return info struct containing arguments
  *
  * Return: void
  */
-void fork_cmd(info_t *info)
+void exec_cmd(info_t *info)
 {
 	pid_t child_pid;
 
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-		/*  PUT ERROR FUNCTION */
 		perror("Error:");
 		return;
 	}
@@ -146,7 +143,7 @@ void fork_cmd(info_t *info)
 				exit(126);
 			exit(1);
 		}
-		/*  PUT ERROR FUNCTION */
+		
 	}
 	else
 	{
