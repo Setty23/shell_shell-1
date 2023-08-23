@@ -126,27 +126,27 @@ char *find_path(info_t *, char *, char *);
 int loophsh(char **);
 
 /*_errors.c */
-void _eputs(char *);
-int _eputchar(char);
-int _putfd(char c, int fd);
-int _putsfd(char *str, int fd);
+void _errputs(char *);
+int _errputchar(char);
+int fd_put(char, int);
+int fd_puts(char *, int);
 
 /* _string1.c */
-int _strlen(char *);
-int _strcmp(char *, char *);
+int my_strlen(char *);
+int my_strcmp(char *, char *);
 char *starts_with(const char *, const char *);
-char *_strcat(char *, char *);
+char *my_strcat(char *, char *);
 
 /* string2.c */
-char *_strcpy(char *, char *);
-char *_strdup(const char *);
+char *my_strcpy(char *, char *);
+char *my_strdup(const char *);
 void _puts(char *);
 int _putchar(char);
 
 /* exits.c */
 char *my_strncpy(char *, const char *, size_t);
-char *_strncat(char *, char *, int);
-char *_strchr(char *, char);
+char *my_strncat(char *, char *, int);
+char *my_strchr(char *, char);
 
 /* towz.c */
 char **strtow(char *, char *);
@@ -197,7 +197,7 @@ void free_info(info_t *, int);
 
 /* _environ.c */
 char *_getenv(info_t *, const char *);
-int _myenv(info_t *);
+int my_env(info_t *);
 int _mysetenv(info_t *);
 int _myunsetenv(info_t *);
 int populate_env_list(info_t *);
