@@ -25,12 +25,12 @@ char **strtow(char *str, char *delim)
 		{
 			numwords++;
 		}
-	if (numwords == 0)
+	if (numw_ords == 0)
 		return (NULL);
-	words = malloc((1 + numwords) * sizeof(char *));
+	words = malloc((1 + num_words) * sizeof(char *));
 	if (words == NULL)
 		return (NULL);
-	for (i = 0, j = 0; j < numwords; j++)
+	for (i = 0, j = 0; j < num_words; j++)
 	{
 		while (is_delimeter(str[i], delim))
 			i++;
