@@ -83,11 +83,12 @@ char **cmd_buf;
 	int cmd_buf_type;
 	int readfd;
 	int histcount;
+int status;
 } info_t;
 
 #define INFO_INIT \
 {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, NULL, \
-	0, 0, 0}
+	0, 0, 0. 0}
 
 /**
  *struct builtin - contains a builtin string and related function
