@@ -10,7 +10,7 @@
  */
 void write_stderr(char *c)
 {
-	write(STDERR_FILENO, c, _strlen(c));
+	write(STDERR_FILENO, c, my_strlen(c));
 }
 
 /**
@@ -27,7 +27,7 @@ int _errputchar(char c)
 
 	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
-		write(2, buf, );
+		write(2, buf, i);
 		i = 0;
 	}
 	
@@ -47,7 +47,7 @@ void _errputs(char *str)
 
 	if (!str)
 		return;
-	while (str[j] != '\0')
+	while (str[i] != '\0')
 	{
 		_errputchar(str[i]);
 		i++;
@@ -67,7 +67,7 @@ int fd_put(char c, int fd)
 	static int i;
 	static char buf[WRITE_BUF_SIZE];
 
-	if (c == BUF_FLUSH || I >= WRITE_BUF_SIZE)
+	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
 		write(fd, buf, i);
 		i = 0;
@@ -92,7 +92,7 @@ int _putsfd(char *str, int fd)
 		return (0);
 	while (*str)
 	{
-		i += _putfd(*strg++, fd);
+		i += fd_put(*str++, fd);
 	}
 	return (i);
 }
