@@ -1,38 +1,37 @@
 #include "shell.h"
 
 /**
- * is_chain - a function that test if the current char is a chain delimeter
- * @info: the parameter struct containing arguments
+ * is_chain - a function that checks if the char is a chain delimeter.
+ * @info: structure containing arguments
  * @buf: the character buffer
  * @p: address of current position in buf
  *
- * Return: 1 if chain delimeter, 0 otherwise
+ * Return: 1 if chain delimeter, 0 if not
  */
-int is_chain(info_t *info, char *buf, size_t *p)
+int is_chain(info_t *info, char *buf, int *p)
 {
-	size_t y = *p;
+	char *chain_delims = ";&|";
+	char c = buf[*p];
 
-	if (buf[y] == '|' && buf[y + 1] == '|')
+	 if (c == '\0')
+		 return (0);
+	if (my_strchr(chain_delims, c) != NULL)
 	{
-		buf[y] = 0;
-		y++;
-		info->cmd_buf_type = CMD_OR;
+		if (c == '|' && buf[*p + 1] == '|')
+		{
+			*p += 2;
+			return (1);
+		}
+
+		if (c == '&' && buf[*p + 1] == '&')
+		{
+			*p += 2;
+			return (1);
+		}
+		*p += 1;
+		return (1);
 	}
-	else if (buf[y] == '&' && buf[y + 1] == '&')
-	{
-		buf[y] = 0;
-		y++;
-		info->cmd_buf_type = CMD_AND;
-	}
-	else if (buf[y] == ';') /* found end of this command */
-	{
-		buf[y] = 0; /* replace semicolon with null */
-		info->cmd_buf_type = CMD_CHAIN;
-	}
-	else
-		return (0);
-	*p = y;
-	return (1);
+	return (0);
 }
 
 /**
@@ -47,7 +46,7 @@ int is_chain(info_t *info, char *buf, size_t *p)
  */
 void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 {
-	size_t y = *p;
+	size_t x = *p;
 	int status = 0;
 
 	if (info->cmd_buf_type == CMD_AND)
@@ -55,7 +54,7 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 		if (info->status)
 		{
 			buf[i] = 0;
-			y = len;
+			x = len;
 		}
 	}
 	if (info->cmd_buf_type == CMD_OR)
@@ -63,11 +62,11 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 		if (!info->status)
 		{
 			buf[i] = 0;
-			y = len;
+			x = len;
 		}
 	}
 
-	*p = y;
+	*p = x;
 }
 
 /**
