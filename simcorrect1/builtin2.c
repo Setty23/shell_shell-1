@@ -12,7 +12,7 @@ int unset_alias(info_t *info, char *str)
 	char *x, c;
 	int re;
 
-	q = _strchr(str, '=');
+	x = my_strchr(str, '=');
 	if (!x)
 		return (1);
 	c = *x;
@@ -57,7 +57,7 @@ int print_alias(list_t *node1)
 	if (node1)
 	{
 		x = _strchr(node1->str, '=');
-		for (a = node1->str; a <= q; a++)
+		for (a = node1->str; a <= x; a++)
 			_putchar(*a);
 		_putchar('\'');
 		_puts(x + 1);
