@@ -12,20 +12,20 @@ int my_env(info_t *info)
 }
 
 /**
- * _getenv - function that gets the value of an environ variable
+ * get_env - function that gets the value of an environ variable
  * @info: Structure tht has possible arguments
- * @nm: environent var name
+ * @num: environent var name
  *
  * Return: value
  */
-char *get_env(info_t *info, const char *nm)
+char *get_env(info_t *info, const char *num)
 {
 	list_t *node = info->env;
 	char *x;
 
 	while (node)
 	{
-		x = starts_with(node->str, nm);
+		x = starts_with(node->str, num);
 		if (x && *x)
 			return (x);
 		node = node->next;
