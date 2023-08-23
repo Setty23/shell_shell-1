@@ -58,7 +58,6 @@ typedef struct liststr
  *@history: the history node
  *@alias: the alias node
  *@env_changed: on if environ was changed
- *@status: the return status of the last exec'd command
  *@cmd_buf: address of pointer to cmd_buf, on if chaining
  *@cmd_buf_type: CMD_type ||, &&, ;
  *@readfd: the fd from which to read line input
@@ -69,25 +68,25 @@ typedef struct passinfo
 	char *arg;
 	char **argv;
 	char *path;
-	int argc;
-	unsigned int line_count;
-	int err_num;
-	int linecount_flag;
-	char *fname;
+char *fname;
 	list_t *env;
 	list_t *history;
 	list_t *alias;
 	char **environ;
+	int argc;
+	unsigned int line_count;
+	int err_num;
+	int linecount_flag;
+	
 	int env_changed;
-
-	char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
-	int cmd_buf_type; /* CMD_type ||, &&, ; */
+char **cmd_buf;
+	int cmd_buf_type;
 	int readfd;
 	int histcount;
 } info_t;
 
 #define INFO_INIT \
-{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, NULL, \
+{NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, NULL, \
 	0, 0, 0}
 
 /**
@@ -102,37 +101,32 @@ typedef struct builtin
 } builtin_table;
 
 
-/* shloop.c */
-int hsh(info_t *, char **);
-int find_builtin(info_t *);
-void find_cmd(info_t *);
-void exec_cmd(info_t *);
-
-/* shell_pointer.c */
-int is_cmd(info_t *, char *);
-char *dup_chars(char *, int, int);
-char *find_path(info_t *, char *, char *);
-
-/* loophsh.c */
-int loophsh(char **);
-
-/*_errors.c */
-void _errputs(char *);
-int _errputchar(char);
-int fd_put(char, int);
-int fd_puts(char *, int);
-
 /* _string1.c */
 int my_strlen(char *);
 int my_strcmp(char *, char *);
 char *starts_with(const char *, const char *);
 char *my_strcat(char *, char *);
-
 /* string2.c */
 char *my_strcpy(char *, char *);
 char *my_strdup(const char *);
 void _puts(char *);
 int _putchar(char);
+/* shellloop.c */
+int hsh(info_t *, char **);
+int find_builtin(info_t *);
+void find_cmd(info_t *);
+void exec_cmd(info_t *);
+/* shell_pointer.c */
+int is_cmd(info_t *, char *);
+char *dup_chars(char *, int, int);
+char *find_path(info_t *, char *, char *);
+/* loophsh.c */
+int loophsh(char **);
+/*_errors.c */
+void _errputs(char *);
+int _errputchar(char);
+int fd_put(char, int);
+int fd_puts(char *, int);
 
 /* exits.c */
 char *my_strncpy(char *, const char *, size_t);
@@ -194,8 +188,6 @@ int populate_env_list(info_t *);
 
 /* _getenv.c */
 char **get_environ(info_t *);
-int _unsetenv(info_t *, char *);
-int _setenv(info_t *, char *, char *);
 
 /* get_history.c */
 char *get_history_file(info_t *info);
@@ -219,7 +211,7 @@ list_t *node_starts_with(list_t *, char *, char);
 ssize_t get_node_index(list_t *, list_t *);
 
 /* vars_file.c */
-int is_chain(info_t *, char *, size_t *);
+int is_chain(info_t *, char *, int *);
 void check_chain(info_t *, char *, size_t *, size_t, size_t);
 int replace_alias(info_t *);
 int replace_vars(info_t *);
