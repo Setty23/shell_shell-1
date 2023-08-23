@@ -31,33 +31,35 @@ int my_exit(info_t *info)
 }
 
 /**
- * _mycd - changes current directory in shell
- * @info: Structure that has pssible arguments. Used to maintain
- *          constant function prototype.
+ * my_cd - custom changes current directory handler function.
+ * @info: Pointer to a structure containing relevant information.
+ *
  *  Return: Always 0
  */
-int _mycd(info_t *info)
+int my_cd(info_t *info)
 {
-	char *z, *dr, buffer[1024];
+	char *x;
+	char *dir;
+	char buffer[1024];
 	int chdir_ret;
 
-	z = getcwd(buffer, 1024);
-	if (!z)
+	x = getcwd(buffer, 1024);
+	if (!x)
 		_puts("TODO: >>getcwd failure msg here<<\n");
 	if (!info->argv[1])
 	{
-		dr = _getenv(info, "HOME=");
-		if (!dr)
+		dir = _getenv(info, "HOME=");
+		if (!dir)
 			chdir_ret = /* TODO: what should it be? */
-				chdir((dr = _getenv(info, "PWD=")) ? dr : "/");
+				chdir((dir = _getenv(info, "PWD=")) ? dir : "/");
 		else
-			chdir_ret = chdir(dr);
+			chdir_ret = chdir(dir);
 	}
 	else if (_strcmp(info->argv[1], "-") == 0)
 	{
 		if (!_getenv(info, "OLDPWD="))
 		{
-			_puts(z);
+			_puts(x);
 			_putchar('\n');
 			return (1);
 		}
@@ -81,19 +83,19 @@ int _mycd(info_t *info)
 }
 
 /**
- * _myhelp - changes cirrent directory
- * @info: Structure tht has potential arguments.maintains
- * constant function prototype.
+ * my_help - custom changes cirrent directory function.
+ * @info: Structure that has potential maintains
+ * constant function.
  *  Return: Always 0
  */
-int _myhelp(info_t *info)
+int my_help(info_t *info)
 {
-	char **arg_arr;
+	char **arg;
 
-	arg_arr = info->argv;
+	arg = info->argv;
 	_puts(" Function not yet implemented \n");
 	if (0)
-		_puts(*arg_arr); /* Temp att_unused  */
+		_puts(*arg_arr);
 	return (0);
 }
 
