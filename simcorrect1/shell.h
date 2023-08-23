@@ -175,8 +175,8 @@ void remove_comments(char *);
 
 /* builtin2.c */
 int my_exit(info_t *);
-int _mycd(info_t *);
-int _myhelp(info_t *);
+int my_cd(info_t *);
+int my_help(info_t *);
 int my_history(info_t *);
 
 /* _builtin2.c */
