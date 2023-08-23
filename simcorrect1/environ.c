@@ -1,12 +1,11 @@
 #include "shell.h"
 
 /**
- * _myenv - function that prints the current environment
- * @info: Structure that has potential arguments.maintains
- *          constant function prototype.
+ * my_env - function that prints the current environment
+ * @info: Structure that has potential arguments.
  * Return: Always 0
  */
-int _myenv(info_t *info)
+int my_env(info_t *info)
 {
 	print_list_str(info->env);
 	return (0);
@@ -19,65 +18,24 @@ int _myenv(info_t *info)
  *
  * Return: value
  */
-char *_getenv(info_t *info, const char *nm)
+char *get_env(info_t *info, const char *nm)
 {
-	list_t *node1 = info->env;
-	char *q;
+	list_t *node = info->env;
+	char *x;
 
-	while (node1)
+	while (node)
 	{
-		q = starts_with(node1->str, nm);
-		if (q && *q)
-			return (q);
-		node1 = node1->next;
+		x = starts_with(node1->str, nm);
+		if (x && *x)
+			return (x);
+		node = node->next;
 	}
 	return (NULL);
 }
 
 /**
- * _mysetenv - function that Initialize  new environment var,
- *             or modify existing ones
- * @info: Structure that has arguments.maintains
- *        constant function prototype.
- *  Return: Always 0
- */
-int _mysetenv(info_t *info)
-{
-	if (info->argc != 3)
-	{
-		_eputs("Incorrect number of arguements\n");
-		return (1);
-	}
-	if (_setenv(info, info->argv[1], info->argv[2]))
-		return (0);
-	return (1);
-}
-
-/**
- * _myunsetenv - function that Removes an environment variable
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- *  Return: Always 0
- */
-int _myunsetenv(info_t *info)
-{
-	int j;
-
-	if (info->argc == 1)
-	{
-		_eputs("Too few arguements.\n");
-		return (1);
-	}
-	for (j = 1; j <= info->argc; j++)
-		_unsetenv(info, info->argv[j]);
-
-	return (0);
-}
-
-/**
- * populate_env_list -function that  populates environmnt linked list
- * @info: Structure that has  arguments. maintains
- *          constant function prototype.
+ * populate_env_list - custom function that populates env. linked list.
+ * @info: Pointer to the structure that holds arguments and maintains state.
  * Return: Always 0
  */
 int populate_env_list(info_t *info)
