@@ -12,10 +12,10 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 {
 	ssize_t t = 0;
 	size_t len_p = 0;
+	int j = 0;
 
-	if (!*len) /* if nothing left in the buffer, fill it */
+	if (!*len)
 	{
-		/*bfree((void **)info->cmd_buf);*/
 		free(*buf);
 		*buf = NULL;
 		signal(SIGINT, sigintHandler);
@@ -32,9 +32,15 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 				t--;
 			}
 			info->linecount_flag = 1;
-			remove_comments(*buf);
+			 for (j = 0; (*buf)[j] != '\0'; j++)
+			 {
+				 if ((*buf)[j] == '#' && (!j || (*buf)[j - 1] == ' '))
+				 {
+					 (*buf)[j] = '\0';
+					 break;
+				 }
+			 }
 			build_history_list(info, *buf, info->histcount++);
-			/* if (_strchr(*buf, ';')) is this a command chain? */
 			{
 				*len = t;
 				info->cmd_buf = buf;
