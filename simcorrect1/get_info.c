@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * clear_info - function that initializes info_t struct
+ * init_info - a function that initializes info_t struct.
  * @info: the struct address
  */
-void clear_info(info_t *info)
+void init_info(info_t *info)
 {
 	info->arg = NULL;
 	info->argv = NULL;
@@ -31,7 +31,7 @@ void set_info(info_t *info, char **av)
 			info->argv = malloc(sizeof(char *) * 2);
 			if (info->argv)
 			{
-				info->argv[0] = _strdup(info->arg);
+				info->argv[0] = my_strdup(info->arg);
 				info->argv[1] = NULL;
 			}
 		}
