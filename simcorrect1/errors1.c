@@ -78,13 +78,13 @@ int fd_put(char c, int fd)
 }
 
 /**
- *_putsfd - custom function print input str.
+ *fd_puts - custom function print input str.
  * @str: the string to  print
  * @fd:  filedescriptor to write or modify
  *
  * Return: the number of chars put
  */
-int _putsfd(char *str, int fd)
+int fd_puts(char *str, int fd)
 {
 	int i = 0;
 
