@@ -71,5 +71,5 @@ char *my_strncpy(char *dest, const char *src, size_t n)
 		*d++ = '\0';
 		n--;
 	}
-	return (dest);
+	return (d);
 }
