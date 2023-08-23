@@ -191,7 +191,7 @@ int print_alias(list_t *node1);
 void sigintHandler(int);
 
 /* _getinfo.c */
-void clear_info(info_t *);
+void init_info(info_t *);
 void set_info(info_t *, char **);
 void free_info(info_t *, int);
 
