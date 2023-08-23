@@ -68,7 +68,7 @@ typedef struct passinfo
 	char *arg;
 	char **argv;
 	char *path;
-char *fname;
+	char *fname;
 	list_t *env;
 	list_t *history;
 	list_t *alias;
@@ -77,18 +77,17 @@ char *fname;
 	unsigned int line_count;
 	int err_num;
 	int linecount_flag;
-	
 	int env_changed;
-char **cmd_buf;
+	char **cmd_buf;
 	int cmd_buf_type;
 	int readfd;
 	int histcount;
-int status;
+	int status;
 } info_t;
 
 #define INFO_INIT \
 {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, \
-NULL, 0, 0, 0, 0}
+	NULL, 0, 0, 0, 0}
 
 /**
  *struct builtin - contains a builtin string and related function
