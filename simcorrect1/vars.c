@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * is_chain - function that test if current char is a chain delimeter
+ * is_chain - a function that test if the current char is a chain delimeter
  * @info: the parameter struct containing arguments
- * @buf: the char buffer
+ * @buf: the character buffer
  * @p: address of current position in buf
  *
  * Return: 1 if chain delimeter, 0 otherwise
@@ -48,6 +48,7 @@ int is_chain(info_t *info, char *buf, size_t *p)
 void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 {
 	size_t y = *p;
+	int status = 0;
 
 	if (info->cmd_buf_type == CMD_AND)
 	{
@@ -99,7 +100,7 @@ int replace_alias(info_t *info)
 }
 
 /**
- * replace_vars - function that replaces vars in tokenized string
+ * replace_vars - function that replaces vars the tokenized strings
  * @info: the parameter struct that contains arguments
  *
  * Return: 1 if replaced, 0 otherwise
