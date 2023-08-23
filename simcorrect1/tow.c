@@ -25,7 +25,7 @@ char **strtow(char *str, char *delim)
 		{
 			num_words++;
 		}
-	if (numw_ords == 0)
+	if (num_words == 0)
 		return (NULL);
 	words = malloc((1 + num_words) * sizeof(char *));
 	if (words == NULL)
@@ -93,7 +93,7 @@ char **strtow2(char *str, char d)
 			return (NULL);
 		}
 		for (b = 0; b < a; b++)
-			c[y][b] = str[x++];
+			c[y][b] = str[i++];
 		c[y][b] = 0;
 	}
 	c[y] = NULL;
