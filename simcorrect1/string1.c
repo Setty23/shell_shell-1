@@ -6,7 +6,7 @@
  *
  * Return: int length of string
  */
-int _strlen(char *r)
+int my_strlen(char *r)
 {
 	int j = 0;
 
@@ -32,13 +32,13 @@ char *starts_with(const char *haystack, const char *needle)
 	return ((char *)haystack);
 }
 /**
- * _strcat - function that concatenates desti and srce
+ * my_strcat - function that concatenates desti and srce
  * @desti: destination buffer
  * @srce:  source buffer
  *
  * Return: ptr to desti buffer
  */
-char *_strcat(char *desti, char *srce)
+char *my_strcat(char *desti, char *srce)
 {
 	char *p = desti;
 
@@ -50,7 +50,7 @@ char *_strcat(char *desti, char *srce)
 	return (p);
 }
 /**
- * _strcmp -  function that compares of two strangs.
+ * my_strcmp -  function that compares of two strangs.
  * @str1:  first string
  * @str2:  second string
  *
@@ -58,7 +58,7 @@ char *_strcat(char *desti, char *srce)
  *	positive if str1 > str2,
  *	zero if str1 == str2
  */
-int _strcmp(char *str1, char *str2)
+int my_strcmp(char *str1, char *str2)
 {
 	while (*str1 && *str2)
 	{
