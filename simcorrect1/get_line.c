@@ -60,7 +60,7 @@ ssize_t get_input(info_t *info)
 {
 	static char *buf; /* the command chain buffer */
 	static size_t x, len;
-	int y:
+	long unsigned int *y;
 	ssize_t t = 0;
 	char **buf_p = &(info->arg), *p;
 
