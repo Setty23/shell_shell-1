@@ -7,14 +7,14 @@
  * @b: the no of bytes to be used
  *Return: concatenated string
  */
-char *my_strncat(char *dest, char *src, int m)
+char *my_strncat(char *dest, char *src, int b)
 {
-	int i = 0:
+	int i = 0;
 	int j = 0;
 	char *d = dest;
 
 	while (dest[i] != '\0')
-		l++;
+		i++;
 	while (src[j] != '\0' && j < b)
 	{
 		dest[i] = src[j];
@@ -40,7 +40,7 @@ char *my_strchr(char *str, char d)
 		{
 			return (str);
 		}
-		str++
+		str++;
 		} 
 	return (NULL);
 }
