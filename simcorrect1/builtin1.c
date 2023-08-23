@@ -18,7 +18,7 @@ int my_exit(info_t *info)
 		{
 			info->status = 2;
 			print_error(info, "Illegal number: ");
-			_eputs(info->argv[1]);
+			_errputs(info->argv[1]);
 			/*_eputchar('\n'); */
 			write_stdout("\n");
 			return (1);
@@ -55,7 +55,7 @@ int my_cd(info_t *info)
 		else
 			chdir_ret = chdir(dir);
 	}
-	else if (_strcmp(info->argv[1], "-") == 0)
+	else if (my_strcmp(info->argv[1], "-") == 0)
 	{
 		if (!_getenv(info, "OLDPWD="))
 		{
@@ -65,14 +65,14 @@ int my_cd(info_t *info)
 		}
 		_puts(_getenv(info, "OLDPWD=")), _putchar('\n');
 		chdir_ret = /* TODO: what should it be? */
-			chdir((dr = _getenv(info, "OLDPWD=")) ? dr : "/");
+			chdir((dr = _getenv(info, "OLDPWD=")) ? dir : "/");
 	}
 	else
 		chdir_ret = chdir(info->argv[1]);
 	if (chdir_ret == -1)
 	{
 		print_error(info, "can't cd to ");
-		_eputs(info->argv[1]), _eputchar('\n');
+		_errputs(info->argv[1]), _errputchar('\n');
 	}
 	else
 	{
@@ -95,7 +95,7 @@ int my_help(info_t *info)
 	arg = info->argv;
 	_puts(" Function not yet implemented \n");
 	if (0)
-		_puts(*arg_arr);
+		_puts(*arg);
 	return (0);
 }
 
