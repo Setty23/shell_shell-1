@@ -51,8 +51,7 @@ int my_cd(info_t *info)
 	{
 		dir = get_env(info, "HOME=");
 		if (!dir)
-			chdir_ret = /* TODO: what should it be? */
-				chdir((dir = get_env(info, "PWD=")) ? dir : "/");
+			chdir_ret = chdir((dir = get_env(info, "PWD=")) ? dir : "/");
 		else
 			chdir_ret = chdir(dir);
 	}
